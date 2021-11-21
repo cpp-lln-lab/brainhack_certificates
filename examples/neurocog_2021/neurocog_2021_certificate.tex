@@ -18,6 +18,7 @@
 %=============================
 \usepackage{datatool}
 \DTLloaddb{names}{data/namelist-1.csv}
+%\DTLloaddb{names}{data/Liste_inscrits.csv}
 %=============================
 \def\signature#1#2{\parbox[b]{1in}{\smash{#1}\vskip12pt}
 \hfill \parbox[t]{2.8in}{\shortstack{\vrule width 2.8in height 0.4pt\\\small#2}}}
@@ -37,7 +38,7 @@
 
 %=============================
 \DTLforeach{names}{
-\dg=degree, \name=Name, \dgn=Dgn, \sub=subject, \inst=inst, \place=place}{
+\name=Name, \surname=Surname}{
 %=============================
 
 \begin{minipage}[c]{22cm}
@@ -54,18 +55,18 @@
     }
 }
 
-\vskip1cm
+\vskip0.5cm
 
 { 
 \centering{
-\bfseries{\dg. \MakeUppercase{\name}}, { \dgn} of {\sub}, {\inst}, 
-\vskip2em
-Attended the Neurocog event on November 23-24, 2021
+\bfseries{ \MakeUppercase{\surname} \MakeUppercase{\name}}, 
+\vskip0.5cm
+attended the Neurocog event on November 23-24, 2021
 \\at the Université Catholique de Louvain, Belgium.
 }\\
 }
 
-\vskip1cm
+\vskip0.5cm
 
 { 
 \centering{
