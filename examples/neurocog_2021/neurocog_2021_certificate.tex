@@ -17,8 +17,7 @@
 \newcommand*\initfamily{\usefont{U}{Zallman}{xl}{n}}
 %=============================
 \usepackage{datatool}
-\DTLloaddb{names}{data/namelist-1.csv}
-%\DTLloaddb{names}{data/Liste_inscrits.csv}
+\DTLloaddb{names}{data/name_list.csv}
 %=============================
 \def\signature#1#2{\parbox[b]{1in}{\smash{#1}\vskip12pt}
 \hfill \parbox[t]{2.8in}{\shortstack{\vrule width 2.8in height 0.4pt\\\small#2}}}
@@ -38,13 +37,13 @@
 
 %=============================
 \DTLforeach{names}{
-\name=Name, \surname=Surname}{
+\name=Name, \surname=Surname, \attendance=Attendance, \attendanceCode=AttendanceCode}{
 %=============================
 
 \begin{minipage}[c]{22cm}
-\begin{center}
- \includegraphics[height=4cm,keepaspectratio=true]{data/neurocog-header.png}
-\end{center}
+    \begin{center}
+    \includegraphics[height=4cm,keepaspectratio=true]{data/neurocog-header.png}
+    \end{center}
 \end{minipage}
 
 \vskip1cm
@@ -61,7 +60,8 @@
 \centering{
 \bfseries{ \MakeUppercase{\surname} \MakeUppercase{\name}}, 
 \vskip0.5cm
-attended the Neurocog event on November 23-24, 2021
+
+attended \MakeLowercase{\attendance} the Neurocog event on November 23-24, 2021
 \\at the Université Catholique de Louvain, Belgium.
 }\\
 }
@@ -74,7 +74,7 @@ attended the Neurocog event on November 23-24, 2021
 }\\
 }
 
-\vskip1mm
+\vskip5mm
 
 \begin{minipage}[l]{3in}
 \sigskip
@@ -100,7 +100,7 @@ Professor at UCLouvain
 }
 \end{minipage}
 
-\vskip1mm
+\vskip5mm
 
 \begin{minipage}[l]{0.5in}
     \begin{center}
