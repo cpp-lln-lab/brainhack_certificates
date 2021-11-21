@@ -1,0 +1,116 @@
+\documentclass[16pt]{scrartcl}
+\usepackage[letterpaper,left=0.5in,right=1mm,top=0.5in,bottom=0.5in]{geometry}
+\usepackage{pdflscape,setspace,amsmath,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{calligra}
+\usepackage{tgschola}
+%\usepackage{fourier-orns}
+\usepackage{graphicx}
+\usepackage{wallpaper}
+\usepackage[normalem]{ulem}
+\usepackage{charter}
+\usepackage{microtype}
+\hyphenpenalty 100000
+%=============================
+%\input Zallman.fd
+\newcommand*\initfamily{\usefont{U}{Zallman}{xl}{n}}
+%=============================
+\usepackage{datatool}
+\DTLloaddb{names}{data/namelist-1.csv}
+%=============================
+\def\signature#1#2{\parbox[b]{1in}{\smash{#1}\vskip12pt}
+\hfill \parbox[t]{2.8in}{\shortstack{\vrule width 2.8in height 0.4pt\\\small#2}}}
+\def\sigskip{\vskip0.4in plus 0.1in}
+        \def\beginskip{\vskip0.5875in plus 0.1in}
+%=============================
+\definecolor{title}{RGB}{0,0,0}
+\definecolor{other}{RGB}{171,0,255}
+\definecolor{name}{RGB}{255,0,0}
+\definecolor{phd}{RGB}{0,0,240}
+%=============================
+
+\begin{document}
+\begin{landscape}
+\linespread{1.25}\selectfont
+\pagestyle{empty}
+
+%=============================
+\DTLforeach{names}{
+\dg=degree, \name=Name, \dgn=Dgn, \sub=subject, \inst=inst, \place=place}{
+%=============================
+
+\begin{minipage}[c]{22cm}
+\begin{center}
+ \includegraphics[height=4cm,keepaspectratio=true]{data/neurocog-header.png}
+\end{center}
+\end{minipage}
+
+\vskip1cm
+
+{\centering
+    {\onehalfspacing
+        {\Large\bfseries\color{title}{This certifies that}}\\
+    }
+}
+
+\vskip1cm
+
+{ 
+\centering{
+\bfseries{\dg. \MakeUppercase{\name}}, { \dgn} of {\sub}, {\inst}, 
+\vskip2em
+Attended the Neurocog event on November 23-24, 2021
+\\at the Université Catholique de Louvain, Belgium.
+}\\
+}
+
+\vskip1cm
+
+{ 
+\centering{
+\rule{6cm}{1mm}
+}\\
+}
+
+\vskip1mm
+
+\begin{minipage}[l]{3in}
+\sigskip
+    \begin{center}
+    \includegraphics[width=.5\linewidth]{data/sig_val.png}
+    \end{center}
+\signature{}{
+Valérie Goffaux \\ 
+Research Associate at FRS-FNRS \\
+Professor at UCLouvain
+}
+\end{minipage}
+\hspace{8cm}
+\begin{minipage}[r]{3in}
+\sigskip 
+    \begin{center}
+    \includegraphics[width=.5\linewidth]{data/sig_oli.png}
+    \end{center}
+\signature{}{
+Olivier Collignon \\ 
+Research Associate at FRS-FNRS \\
+Professor at UCLouvain
+}
+\end{minipage}
+
+\vskip1mm
+
+\begin{minipage}[l]{0.5in}
+    \begin{center}
+    \includegraphics[width=24.5cm,keepaspectratio=true]{data/sponsor_banner.png}
+    \end{center}
+\end{minipage}
+
+\vskip1mm
+
+%=============================
+\pagebreak
+}
+\end{landscape}
+\end{document} 
